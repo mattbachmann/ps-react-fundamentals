@@ -12,3 +12,9 @@ const Greeting = () => (
     </div>
 );
 ````
+
+## Tooling
+
+* NextJS or CreateReactApp as CLI
+* For NextJS:
+  * root component _app.js and index.js start page

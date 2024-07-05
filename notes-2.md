@@ -17,7 +17,7 @@ const Greeting = () => (
 
 * NextJS or CreateReactApp as CLI
 * For NextJS:
-    * root component _app.js and index.js start page
+    * root component _app.js and index.js start page. No index.html
 
 ## Styling in NextJS
 * 4 global styling create a _document.js file, because NextJS has no index.html for style links

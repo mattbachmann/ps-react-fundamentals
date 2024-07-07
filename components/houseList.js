@@ -32,7 +32,7 @@ const HouseList = () => {
   };
 
   return (
-    <>
+    <> {/* empty container */}
       <div className="row mb-2">
         <h5 className="themeFontColor text-center">
           Houses currently on the market
@@ -48,7 +48,9 @@ const HouseList = () => {
         </thead>
         <tbody>
           {houses.map((h) => (
-            <HouseRow key={h.id} house={h} />
+              /* key property for tracking - needed for components in map fn */
+              // {...h} destructuring house as different props
+            <HouseRow key={h.id} {...h} />
           ))}
         </tbody>
       </table>

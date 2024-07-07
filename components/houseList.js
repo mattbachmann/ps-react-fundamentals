@@ -18,6 +18,9 @@ const houseArray = [
 
 const HouseList = () => {
   const [houses, setHouses] = useState(houseArray);
+  const [counter, setCounter] = useState(0);
+
+  const increment = () => setCounter(counter + 1);
 
   const addHouse = () => {
     setHouses([
@@ -38,6 +41,7 @@ const HouseList = () => {
           Houses currently on the market
         </h5>
       </div>
+      <div>Counter: {counter}</div>
       <table className="table table-hover">
         <thead>
           <tr>
@@ -56,6 +60,9 @@ const HouseList = () => {
       </table>
       <button className="btn btn-primary" onClick={addHouse}>
         Add
+      </button>
+      <button className="btn" onClick={increment}>
+        Increment
       </button>
     </>
   );

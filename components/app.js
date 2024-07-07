@@ -7,6 +7,8 @@ const App = () => {
       <Banner>
         <div>Providing houses all over the world</div>
       </Banner>
+        <Banner text="Hallo Text!">
+        </Banner>
       <HouseList />
     </>
   );

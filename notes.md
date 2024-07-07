@@ -47,5 +47,41 @@ Need to provide a key prop for tracking:
 ))}
 ```
 
-## Hooks
-* React lifecyle hooks or custom hooks
+## Hooks and State
+* In general React lifecyle hooks or custom hooks
+
+### useState Hook for change detection
+```jsx
+const houseArray = [
+  {
+    id: 1,
+    address: "12 Valley of Kings, Geneva",
+    country: "Switzerland",
+    price: 900000,
+  },
+        ...
+];
+
+const HouseList = () => {
+  const [houses, setHouses] = useState(houseArray);
+  ...
+```
+* setHouses should always be used to change houses
+* Always call useState hook at the start of the component function.
+* Always provide _new_ array in `setHouses`
+* Components can change their state, but not props they receive. (no double data binding)
+  * Only 1 way data binding
+
+```js
+const addHouse = () => {
+    setHouses([
+      ...houses,
+      {
+        id: 3,
+        address: "32 Valley Way, New York",
+        country: "USA",
+        price: 1000000,
+      },
+    ]);
+  };
+```

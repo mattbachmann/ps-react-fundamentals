@@ -27,4 +27,25 @@ const Greeting = () => (
 * Inline
   * style={{color: red}} where inner braces are an object 
 
+## Props
+* All input props given from parent component go into props object param
+```jsx
+<HouseRow house={h} />
+```
+```jsx
+const HouseRow = ({ house }) => (
+        <div> {house.address} <div>
+          );
+```
 
+### Props inside map function
+Need to provide a key prop for tracking:
+```jsx
+  {houses.map((h) => (
+        /* key property for tracking - needed for components in map fn */
+        <HouseRow key={h.id} house={h} />
+))}
+```
+
+## Hooks
+* React lifecyle hooks or custom hooks

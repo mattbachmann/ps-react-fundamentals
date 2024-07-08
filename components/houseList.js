@@ -1,24 +1,31 @@
-import React, { useState } from "react";
-import HouseRow from "./houseRow";
-
-const houseArray = [
-  {
-    id: 1,
-    address: "12 Valley of Kings, Geneva",
-    country: "Switzerland",
-    price: 900000,
-  },
-  {
-    id: 2,
-    address: "89 Road of Forks, Bern",
-    country: "Switzerland",
-    price: 500000,
-  },
-];
+import React, {useEffect, useState} from "react";
+import {HouseRowMem} from "./houseRow";
 
 const HouseList = () => {
-  const [houses, setHouses] = useState(houseArray);
+  const [houses, setHouses] = useState([]);
   const [counter, setCounter] = useState(0);
+
+  // Component function and useEffect are run initially AND on every state change
+  useEffect(() => {
+    const fetchHouses = async () => {
+            setTimeout(() => setHouses( [
+              {
+                id: 1,
+                address: "12 Valley of Kings, Geneva",
+                country: "Switzerland",
+                price: 900000,
+              },
+              {
+                id: 2,
+                address: "89 Road of Forks, Bern",
+                country: "Switzerland",
+                price: 500000,
+              },
+            ]), 500);
+    };
+
+    fetchHouses(); // Cannot make async calls directly in useEffect
+  }, []); // Only fetch initially, by providing empty deps []
 
   const increment = () => setCounter(counter + 1);
 

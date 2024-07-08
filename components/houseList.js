@@ -54,7 +54,7 @@ const HouseList = () => {
           {houses.map((h) => (
               /* key property for tracking - needed for components in map fn */
               // {...h} destructuring house as different props
-            <HouseRow key={h.id} {...h} />
+            <HouseRowMem key={h.id} {...h} />
           ))}
         </tbody>
       </table>

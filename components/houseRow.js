@@ -1,3 +1,4 @@
+import React from "react";
 import currencyFormatter from "../helpers/currencyFormatter";
 
 const HouseRow = ({address, country, price }) => {
@@ -10,4 +11,8 @@ const HouseRow = ({address, country, price }) => {
   );
 };
 
+// Only pure component functions may be cached - meaning same props and state will render same output
+const HouseRowMem = React.memo(HouseRow);
+
 export default HouseRow;
+export { HouseRowMem };

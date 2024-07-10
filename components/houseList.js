@@ -1,10 +1,11 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import {HouseRowMem} from "./houseRow";
 import currencyFormatter from "../helpers/currencyFormatter";
 
 const HouseList = () => {
   const [houses, setHouses] = useState([]);
   const [counter, setCounter] = useState(0);
+  const incBtnRef = useRef(null);
 
   const result = useMemo(() => {
     return houses.map(h => h.price).reduce((a, b) => a + b, 0);
@@ -83,7 +84,7 @@ const HouseList = () => {
       <button className="btn btn-primary" onClick={addHouse}>
         Add
       </button>
-      <button className="btn" onClick={increment}>
+      <button className="btn" ref={incBtnRef} onClick={increment}>
         Increment
       </button>
     </>

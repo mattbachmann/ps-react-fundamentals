@@ -1,9 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {HouseRowMem} from "./houseRow";
+import currencyFormatter from "../helpers/currencyFormatter";
 
 const HouseList = () => {
   const [houses, setHouses] = useState([]);
   const [counter, setCounter] = useState(0);
+
+  const result = useMemo(() => {
+    return houses.map(h => h.price).reduce((a, b) => a + b, 0);
+  }, [houses]);
+
+  const handler = () => {
+  };
 
   // Component function and useEffect are run initially AND on every state change
   useEffect(() => {
@@ -55,6 +63,7 @@ const HouseList = () => {
         </h5>
       </div>
       <div>Counter: {counter}</div>
+       <div>Result: {currencyFormatter.format(result)}</div>
       <table className="table table-hover">
         <thead>
           <tr>

@@ -25,6 +25,12 @@ const HouseList = () => {
     };
 
     fetchHouses(); // Cannot make async calls directly in useEffect
+
+    window.addEventListener('unhandledRejection', handler);
+
+    return () => { // function returned is called on destruction
+      window.removeEventListener('unhandledRejection', handler);
+    };
   }, []); // Only fetch initially, by providing empty deps []
 
   const increment = () => setCounter(counter + 1);

@@ -85,3 +85,41 @@ const addHouse = () => {
     ]);
   };
 ```
+
+### useEffect hook for fetching data initially and adding or removing event listeners
+
+Provide empty deps array as 2nd parameter to only fetch initially and not on every change.
+```js
+
+// Component function and useEffect are run initially AND on every state change
+useEffect(() => {
+  const fetchHouses = async () => {
+    const response = await api.getHouses();
+    setHouses(response.json);
+  };
+
+  fetchHouses(); // Cannot make async calls directly in useEffect
+
+  window.addEventListener('unhandledRejection', handler);
+
+  return () => { // function returned is called on destruction
+    window.removeEventListener('unhandledRejection', handler);
+  };
+}, []); // Only fetch initially, by providing empty deps []
+```
+
+### useRef hook as element reference
+
+```js
+
+const incBtnRef = useRef(null);
+
+return (
+        <> {/* empty container */}
+         ...
+          <button className="btn" ref={incBtnRef} onClick={increment}>
+            Increment
+          </button>
+        </>
+);
+```

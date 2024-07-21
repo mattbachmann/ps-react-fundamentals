@@ -38,6 +38,22 @@ const HouseRow = ({ house }) => (
           );
 ```
 
+### Setting props with spread operator
+
+```jsx
+const houseResponse = {address: "1st Street", zip: "1234", town: "Garfield"};
+<HouseRow {...houseResponse} />
+```
+
+Use destructoring, to only access properties, that are required:
+
+```jsx
+const HouseRow = ({ address, zip, town }) => (
+        <div> {house.address} <div>
+          );
+```
+
+
 ### Props inside map function
 Need to provide a key prop for tracking:
 ```jsx
